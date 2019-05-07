@@ -1,7 +1,8 @@
 // src/App.js
 
-import React, { useState } from "react";
+import React from "react";
 import { hot } from "react-hot-loader";
+import { useSelector, useDispatch } from 'react-redux'
 
 // TODO: Determine if babel-plugin-transform-require-ignore can work here instead of canUseDOM
 let canUseDOM = !!((typeof window !== 'undefined' && window.document && window.document.createElement));
@@ -10,22 +11,19 @@ if (canUseDOM) {
     require('./App.scss');
 }
 
-
-const useCounter = (initialValue) => {
-    const [count, setCount] = useState(initialValue);
-    const increment = () => setCount(count + 1);
-    const decrement = () => setCount(count - 1);
-    return { count, increment, decrement };
-};
+const onIncrement = () => ({ type: "counter/increment" });
+const onDecrement = () => ({ type: "counter/decrement" });
 
 const App = () => {
-    const { count, increment, decrement } = useCounter(0);
+    const count = useSelector(
+        state => state.count
+    );
+    const dispatch = useDispatch();
     return (
         <div className="App">
-            <p>Learn React</p>
             <p>{count}</p>
-            <button onClick={increment}>increment (+)</button>
-            <button onClick={decrement}>decrement (-)</button>
+            <button onClick={() => dispatch(onIncrement())}>increment (+)</button>
+            <button onClick={() => dispatch(onDecrement())}>decrement (-)</button>
         </div>
     );
 };
