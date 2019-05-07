@@ -1,4 +1,4 @@
-// src/App.js
+// src/App.js (react-hooks)
 
 import React, { useState } from "react";
 import { hot } from "react-hot-loader";
