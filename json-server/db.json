@@ -1,0 +1,641 @@
+{
+  "tickets": [
+    {
+      "_id": 1,
+      "ticketId": "ticketA",
+      "createdBy": {
+        "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+        "role": "Manager",
+        "access": true,
+        "firstName": "Test",
+        "lastName": "Testerson",
+        "email": "test.testerson@hbo.com"
+      },
+      "lastModifiedBy": {
+        "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+        "role": "Manager",
+        "access": true,
+        "firstName": "Test",
+        "lastName": "Testerson",
+        "email": "test.testerson@hbo.com"
+      },
+      "createdDate": "2016-07-11T23:27:09.059Z",
+      "lastModifiedDate": "2016-07-12T22:49:18.177Z",
+      "name": "Title 1 - edited",
+      "description": "<div>Some description.</div><div>We found some more stuff.</div><div>And still more stuff.</div><div>Still lots and lots of stuff</div><div>how much longer?</div><div>this is insane</div>",
+      "products": [
+        "hbogo",
+        "hbonow"
+      ],
+      "clients": [
+        "appleios",
+        "xbox",
+        "desktop"
+      ],
+      "status": "investigating",
+      "history": [
+        {
+          "lastModifiedDate": [
+            "2016-07-11T23:27:09.059Z",
+            "2016-07-12T22:49:18.177Z"
+          ],
+          "status": [
+            "identified",
+            "investigating"
+          ]
+        }
+      ]
+    },
+    {
+      "_id": 2,
+      "ticketId": "ticketB",
+      "createdBy": {
+        "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+        "role": "Manager",
+        "access": true,
+        "firstName": "Test",
+        "lastName": "Testerson",
+        "email": "test.testerson@hbo.com"
+      },
+      "lastModifiedBy": {
+        "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+        "role": "Manager",
+        "access": true,
+        "firstName": "Test",
+        "lastName": "Testerson",
+        "email": "test.testerson@hbo.com"
+      },
+      "createdDate": "2016-07-11T23:27:09.059Z",
+      "lastModifiedDate": "2016-07-11T23:27:09.059Z",
+      "name": "Title 1 - edited",
+      "description": "<div>Some description.</div><div>We found some more stuff.</div><div>And still more stuff.</div><div>Still lots and lots of stuff</div><div>how much longer?</div><div>this is insane</div>",
+      "products": [
+        "hbogo"
+      ],
+      "clients": [
+        "desktop"
+      ],
+      "status": "identified",
+      "recipients": [],
+      "history": []
+    },
+    {
+      "_id": 3,
+      "ticketId": "ticketC",
+      "createdBy": {
+        "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+        "role": "Manager",
+        "access": true,
+        "firstName": "Test",
+        "lastName": "Testerson",
+        "email": "test.testerson@hbo.com"
+      },
+      "lastModifiedBy": {
+        "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+        "role": "Manager",
+        "access": true,
+        "firstName": "Test",
+        "lastName": "Testerson",
+        "email": "test.testerson@hbo.com"
+      },
+      "createdDate": "2016-07-11T23:27:09.059Z",
+      "lastModifiedDate": "2016-07-11T23:27:09.059Z",
+      "name": "test",
+      "description": "<div>test</div>",
+      "products": [
+        "hbonow"
+      ],
+      "clients": [
+        "appleios",
+        "desktop"
+      ],
+      "status": "investigating",
+      "recipients": [],
+      "history": []
+    },
+    {
+      "_id": 4,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2016-12-06T16:44:49.095Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2016-12-06T16:44:49.095Z",
+      "name": "A new ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 5,
+      "clients": [
+        "roku",
+        "xbox_one"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T01:00:27.049Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T01:00:27.049Z",
+      "name": "Different ticket",
+      "products": [
+        "hbogo",
+        "hbonow",
+        "maxgo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 6,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T01:00:49.245Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T01:00:49.245Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 7,
+      "clients": [
+        "roku",
+        "xbox_one"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:07:38.603Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:07:38.603Z",
+      "name": "Different ticket",
+      "products": [
+        "hbogo",
+        "hbonow",
+        "maxgo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 8,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:07:58.858Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:07:58.858Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 9,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:09:30.633Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:09:30.633Z",
+      "name": "A new ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 10,
+      "clients": [
+        "roku",
+        "xbox_one"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:09:40.157Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:09:40.157Z",
+      "name": "Different ticket",
+      "products": [
+        "hbogo",
+        "hbonow",
+        "maxgo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 11,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:10:00.535Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:10:00.535Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 12,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:17:34.168Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:17:34.168Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 13,
+      "clients": [
+        "roku",
+        "xbox_one"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:27:03.139Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:27:03.139Z",
+      "name": "Different ticket",
+      "products": [
+        "hbogo",
+        "hbonow",
+        "maxgo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 14,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:27:22.850Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:27:22.850Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 15,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:29:05.760Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:29:05.760Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 16,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:29:39.562Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:29:39.562Z",
+      "name": "A new ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 17,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:30:09.041Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:30:09.041Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 18,
+      "clients": [
+        "roku",
+        "xbox_one"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:33:05.356Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:33:05.356Z",
+      "name": "Different ticket",
+      "products": [
+        "hbogo",
+        "hbonow",
+        "maxgo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 19,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:33:25.850Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:33:25.850Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    },
+    {
+      "_id": 20,
+      "clients": [
+        "roku"
+      ],
+      "createdBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "createdDate": "2017-01-20T15:34:32.655Z",
+      "description": "<div>This is a new ticket</div>",
+      "history": [],
+      "lastModifiedBy": {
+        "userName": "",
+        "password": "test",
+        "firstName": "Test",
+        "lastName": "Testerson"
+      },
+      "lastModifiedDate": "2017-01-20T15:34:32.655Z",
+      "name": "Unusually named ticket",
+      "products": [
+        "hbogo"
+      ],
+      "recipients": [],
+      "status": "identified",
+      "ticketId": null
+    }
+  ],
+  "login": {
+    "userName": "cafulnecky@yahoo.com",
+    "password": "test",
+    "firstName": "Test",
+    "lastName": "Testerson",
+    "token": "JUaHJlZSBFeWVkI"
+  },
+  "sampleUser": {
+    "roleId": "b71b0f63-199e-46e2-a64e-a453216b7dc8",
+    "role": "Manager",
+    "access": true,
+    "firstName": "Test",
+    "lastName": "Testerson",
+    "email": "test.testerson@hbo.com",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlSWQiOiJiNzFiMGY2My0xOTllLTQ2ZTItYTY0ZS1hNDUzMjE2YjdkYzgiLCJyb2xlIjoiTWFuYWdlciIsImFjY2VzcyI6dHJ1ZSwiZmlyc3ROYW1lIjoiQ2hhcmxlcyIsImxhc3ROYW1lIjoiRnVsbmVja3kiLCJlbWFpbCI6ImNoYXJsZXMuZnVsbmVja3lAaGJvLmNvbSIsImlhdCI6MTQ2ODM0MTI3NSwiZXhwIjoxNDY4Mzg0NDc1fQ.PIoiYU-HU4vPk5AGVOHqnMyJNz5E2oaKOSXP7fonTYA"
+  }
+}

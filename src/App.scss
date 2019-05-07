@@ -1,0 +1,14 @@
+// src/app.scss
+
+body{
+  margin: 0;
+  background-color: aquamarine;
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(gray, 0.2);
+  height: 100vh
+}
