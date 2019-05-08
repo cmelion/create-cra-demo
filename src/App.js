@@ -7,13 +7,6 @@ import { bindActionCreators } from 'redux';
 import { counter } from './dux/counter';
 import './App.scss';
 
-// TODO: Determine if babel-plugin-transform-require-ignore can work here instead of canUseDOM
-let canUseDOM = !!((typeof window !== 'undefined' && window.document && window.document.createElement));
-/* istanbul ignore next */
-if (canUseDOM) {
-    require('./App.scss');
-}
-
 const App = () => {
     const count = useSelector(
         state => state.count
