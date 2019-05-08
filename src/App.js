@@ -18,12 +18,12 @@ const App = () => {
     const count = useSelector(
         state => state.count
     );
-    const actions = bindActionCreators(counter.actions, useDispatch());
+    const { increment, decrement } = bindActionCreators(counter.actions, useDispatch());
     return (
         <div className="App">
             <p>{count}</p>
-            <button onClick={ actions.increment }>increment (+)</button>
-            <button onClick={ actions.decrement }>decrement (-)</button>
+            <button onClick={ increment }>increment (+)</button>
+            <button onClick={ decrement }>decrement (-)</button>
         </div>
     );
 };
