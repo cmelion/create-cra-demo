@@ -1,5 +1,15 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This playground project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Branches
+
+#### Counter DEMO
+* [react-hooks-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/react-hooks-version)     - demonstrates useState hook for local state management
+* [redux-connect-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/redux-connect-version) - demonstrates redux using react-redux connect method
+* [redux-connect-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/redux-hooks-version)   - demonstrates redux using react-redux hooks method
+
+##### Compare implementations
+* [redux-hooks vs redux-connect](https://github.com/cmelion/react-cra-demo/compare/cfulnecky/redux-hooks-version...cfulnecky/redux-connect-version)
+* [react-hooks vs redux-hooks](https://github.com/cmelion/react-cra-demo/compare/cfulnecky/react-hooks-version...cfulnecky/redux-hooks-version)
 ## Available Scripts
 
 In the project directory, you can run:
@@ -36,6 +46,12 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### `npm run cucumber`
+This will run cucumber style unit tests with support for Enzyme and Jest
+
+### `npm run json-server`
+A full fake REST API with zero coding - https://github.com/typicode/json-server
 
 ## Learn More
 
