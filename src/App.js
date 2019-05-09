@@ -2,14 +2,7 @@
 
 import React, { useState } from "react";
 import { hot } from "react-hot-loader";
-
-// TODO: Determine if babel-plugin-transform-require-ignore can work here instead of canUseDOM
-let canUseDOM = !!((typeof window !== 'undefined' && window.document && window.document.createElement));
-/* istanbul ignore next */
-if (canUseDOM) {
-    require('./App.scss');
-}
-
+import './App.scss';
 
 const useCounter = (initialValue) => {
     const [count, setCount] = useState(initialValue);
