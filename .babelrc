@@ -20,11 +20,9 @@
   "env": {
     "test": {
       "plugins": [
-        "transform-es2015-modules-commonjs",
-        "babel-plugin-transform-require-ignore",
-        {
-          "extensions": [".less", ".sass"]
-        }
+        ["transform-require-ignore", {
+          "extensions": [".scss"]
+        }]
       ]
     }
   }
