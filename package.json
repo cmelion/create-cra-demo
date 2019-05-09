@@ -14,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cucumber": "npx babel-node --presets=@babel/react,@babel/preset-env node_modules/cucumber/bin/cucumber-js -f node_modules/cucumber-pretty",
+    "cucumber": "BABEL_ENV=test npx babel-node --presets=@babel/react,@babel/preset-env node_modules/cucumber/bin/cucumber-js -f node_modules/cucumber-pretty",
     "json-server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes json-server/routes.json"
   },
   "eslintConfig": {
