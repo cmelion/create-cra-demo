@@ -9,7 +9,7 @@ This playground project was bootstrapped with [Create React App](https://github.
 
 ##### Compare implementations
 * [redux-hooks vs redux-connect](https://github.com/cmelion/react-cra-demo/compare/cfulnecky/redux-hooks-version...cfulnecky/redux-connect-version)
-* [react-hooks vs redux-hooks](https://github.com/cmelion/react-cra-demo/compare/cfulnecky/react-hooks-version...cfulnecky/redux-hooks-version)
+* [react-hooks vs redux-hooks](https://github.com/cmelion/react-cra-demo/compare/cfulnecky/redux-hooks-version...cfulnecky/react-hooks-version)
 ## Available Scripts
 
 In the project directory, you can run:
