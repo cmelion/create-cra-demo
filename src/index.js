@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { counter } from './dux/counter';
 import App from './App';
+import './index.scss'
 
 let store = createStore(counter.reducer, composeWithDevTools());
 
