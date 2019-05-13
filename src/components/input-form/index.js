@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Formik } from "formik";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./form";
@@ -32,44 +32,31 @@ const validationSchema = Yup.object({
         .oneOf([Yup.ref("password")], "Password does not match")
 });
 
-class InputForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: "",
-            email: ""
-        };
-    }
-
-    submitValues = ({ name, email, confirmPassword, password }) => {
+const InputForm = classes => {
+    const values = {
+        name: '',
+        email: '',
+        confirmPassword: "",
+        password: ""
+    };
+    const submitValues = ({ name, email, confirmPassword, password }) => {
         console.log({ name, email, confirmPassword, password });
     };
-
-    render() {
-        const classes = this.props;
-        const { name, email } = this.state;
-        const values = {
-            name: name,
-            email: email,
-            confirmPassword: "",
-            password: ""
-        };
-        return (
-            <React.Fragment>
-                <div className={classes.container}>
-                    <Paper elevation={1} className={classes.paper}>
-                        <h1>Form</h1>
-                        <Formik
-                            render={props => <Form {...props} />}
-                            initialValues={values}
-                            validationSchema={validationSchema}
-                            onSubmit={this.submitValues}
-                        />
-                    </Paper>
-                </div>
-            </React.Fragment>
-        );
-    }
-}
+    return (
+        <React.Fragment>
+            <div className={classes.container}>
+                <Paper elevation={1} className={classes.paper}>
+                    <h1>Form</h1>
+                    <Formik
+                        render={props => <Form {...props} />}
+                        initialValues={values}
+                        validationSchema={validationSchema}
+                        onSubmit={submitValues}
+                    />
+                </Paper>
+            </div>
+        </React.Fragment>
+    );
+};
 
 export default withStyles(styles)(InputForm);
