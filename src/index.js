@@ -4,11 +4,11 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { counter } from './dux/counter';
+import rootReducer from './reducers';
 import App from './App';
 import './index.scss'
 
-let store = createStore(counter.reducer, composeWithDevTools());
+let store = createStore(rootReducer, composeWithDevTools());
 
 render(
     <Provider store={store}>

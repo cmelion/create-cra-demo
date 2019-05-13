@@ -3,16 +3,16 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { counter } from './dux/counter';
+import { counter } from './dux/index';
 
 const Counter = () => {
     const count = useSelector(
-        state => state.count
+        state => state.counter.count
     );
     const { increment, decrement } = bindActionCreators(counter.actions, useDispatch());
     return (
         <div className="Counter">
-            <p>{count}</p>
+            <p>count: {count}</p>
             <button onClick={ increment }>increment (+)</button>
             <button onClick={ decrement }>decrement (-)</button>
         </div>
