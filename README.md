@@ -75,6 +75,35 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ma
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
+### React-🔥-Dom
+
+React-🔥-Dom ([hot-loader/react-dom](https://github.com/hot-loader/react-dom)) replaces the "react-dom" package of the same version, but with additional patches to support hot reloading.
+
+There are 2 ways to install it:
+
+* Use **yarn** name resolution, so `@hot-loader/react-dom` would be installed instead of `react-dom`
+
+```
+yarn add react-dom@npm:@hot-loader/react-dom
+```
+
+* Use webpack **aliases**
+
+```
+yarn add @hot-loader/react-dom
+```
+
+```js
+// webpack.conf
+...
+resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
+}
+...
+```
+
 ### Deployment
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
