@@ -1,9 +1,11 @@
 import React from 'react';
 import App from '../../src/App';
+import InputForm from '../../src/components/input-form';
+import Counter from '../../src/components/counter';
 import { configure } from 'enzyme';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-const assert = require('assert');
+import {expect} from "chai";
 const { Given, When, Then } = require('cucumber');
 
 // Configures Enzyme Adapter
@@ -22,5 +24,6 @@ When('I shallow render a React component called: App', function () {
 });
 
 Then('my app should contain the words: Learn React', function () {
-    assert(this.wrapper.contains('Learn React'));
+    expect(this.wrapper.find(InputForm)).to.have.lengthOf(1);
+    expect(this.wrapper.find(Counter)).to.have.lengthOf(1);
 });
