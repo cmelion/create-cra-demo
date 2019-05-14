@@ -1,23 +1,9 @@
 import React from "react";
 import { Formik } from "formik";
-import withStyles from "@material-ui/core/styles/withStyles";
 import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup";
-
-const styles = theme => ({
-    paper: {
-        marginTop: theme.spacing.unit * 8,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: `${theme.spacing.unit * 5}px ${theme.spacing.unit * 5}px ${theme
-            .spacing.unit * 5}px`
-    },
-    container: {
-        maxWidth: "200px"
-    }
-});
+import styles from './styles.scss';
 
 const validationSchema = Yup.object({
     name: Yup.string("Enter a name").required("Name is required"),
@@ -32,7 +18,7 @@ const validationSchema = Yup.object({
         .oneOf([Yup.ref("password")], "Password does not match")
 });
 
-const InputForm = classes => {
+const InputForm = () => {
     const values = {
         name: '',
         email: '',
@@ -44,8 +30,8 @@ const InputForm = classes => {
     };
     return (
         <React.Fragment>
-            <div className={classes.container}>
-                <Paper elevation={1} className={classes.paper}>
+            <div className={styles.container}>
+                <Paper elevation={1} className={styles.paper}>
                     <h1>Form</h1>
                     <Formik
                         render={props => <Form {...props} />}
@@ -59,4 +45,4 @@ const InputForm = classes => {
     );
 };
 
-export default withStyles(styles)(InputForm);
+export default InputForm;

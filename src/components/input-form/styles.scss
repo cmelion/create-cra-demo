@@ -1,0 +1,13 @@
+$theme-spacing-unit: 8px;
+
+.paper {
+  margin-top: $theme-spacing-unit * 8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $theme-spacing-unit * 5 t$theme-spacing-unit * 5 $theme-spacing-unit * 5;
+}
+
+.container {
+  max-width: 200px;
+}
