@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup";
-import styles from './styles.scss';
+import './styles.scss';
 
 const validationSchema = Yup.object({
     name: Yup.string("Enter a name").required("Name is required"),
