@@ -11,7 +11,7 @@ const { Given, When, Then } = require('cucumber');
 // Configures Enzyme Adapter
 configure({ adapter: new Adapter() });
 
-Given('the DOM', function () {
+Given('the App has been opened', function () {
     const { JSDOM } = require('jsdom');
     const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
     const { window } = jsdom;
@@ -19,11 +19,11 @@ Given('the DOM', function () {
     global.document = window.document;
 });
 
-When('I shallow render a React component called: App', function () {
+When('the demo app renders', function () {
     this.wrapper = shallow(<App />);
 });
 
-Then('my app should contain an Input Form and a Counter', function () {
+Then('the app should contain an Input Form and a Counter', function () {
     expect(this.wrapper.find(InputForm)).to.have.lengthOf(1);
     expect(this.wrapper.find(Counter)).to.have.lengthOf(1);
 });
