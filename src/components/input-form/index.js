@@ -20,8 +20,8 @@ const validationSchema = Yup.object({
 
 const InputForm = () => {
     const values = {
-        name: '',
-        email: '',
+        name: "",
+        email: "",
         confirmPassword: "",
         password: ""
     };
