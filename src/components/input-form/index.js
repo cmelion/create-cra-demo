@@ -30,8 +30,8 @@ const InputForm = () => {
     };
     return (
         <React.Fragment>
-            <div className={styles.container}>
-                <Paper elevation={1} className={styles.paper}>
+            <div className="container">
+                <Paper elevation={1} className="paper">
                     <h1>Form</h1>
                     <Formik
                         render={props => <Form {...props} />}

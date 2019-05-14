@@ -1,4 +1,6 @@
 $theme-spacing-unit: 8px;
+$break-small: 320px;
+$break-large: 640px;
 
 .paper {
   margin-top: $theme-spacing-unit * 8;
@@ -9,5 +11,13 @@ $theme-spacing-unit: 8px;
 }
 
 .container {
-  max-width: 200px;
+  padding: 5px;
+  margin: auto;
+
+  @media screen and (max-width: $break-small) {
+    max-width: 320px;
+  }
+  @media screen and (min-width: $break-large) {
+    max-width: 640px;
+  }
 }
