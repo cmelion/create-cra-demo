@@ -18,17 +18,18 @@ const validationSchema = Yup.object({
         .oneOf([Yup.ref("password")], "Password does not match")
 });
 
-const InputForm = () => {
-    const values = {
-        name: "",
-        email: "",
-        confirmPassword: "",
-        password: ""
-    };
-    const submitValues = ({ name, email, confirmPassword, password }) => {
-        console.log({ name, email, confirmPassword, password });
-    };
-    return (
+const values = {
+    name: "",
+    email: "",
+    confirmPassword: "",
+    password: ""
+};
+
+const submitValues = ({ name, email, confirmPassword, password }) => {
+    console.log({ name, email, confirmPassword, password });
+};
+
+const InputForm = () =>
         <div className="container">
             <Paper elevation={1} className="paper">
                 <h1>Form</h1>
@@ -39,8 +40,6 @@ const InputForm = () => {
                     onSubmit={submitValues}
                 />
             </Paper>
-        </div>
-    );
-};
+        </div>;
 
 export default InputForm;
