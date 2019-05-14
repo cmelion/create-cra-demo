@@ -29,19 +29,17 @@ const InputForm = () => {
         console.log({ name, email, confirmPassword, password });
     };
     return (
-        <React.Fragment>
-            <div className="container">
-                <Paper elevation={1} className="paper">
-                    <h1>Form</h1>
-                    <Formik
-                        render={props => <Form {...props} />}
-                        initialValues={values}
-                        validationSchema={validationSchema}
-                        onSubmit={submitValues}
-                    />
-                </Paper>
-            </div>
-        </React.Fragment>
+        <div className="container">
+            <Paper elevation={1} className="paper">
+                <h1>Form</h1>
+                <Formik
+                    render={props => <Form {...props} />}
+                    initialValues={values}
+                    validationSchema={validationSchema}
+                    onSubmit={submitValues}
+                />
+            </Paper>
+        </div>
     );
 };
 
