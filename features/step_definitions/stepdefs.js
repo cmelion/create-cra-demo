@@ -23,7 +23,7 @@ When('I shallow render a React component called: App', function () {
     this.wrapper = shallow(<App />);
 });
 
-Then('my app should contain the words: Learn React', function () {
+Then('my app should contain an Input Form and a Counter', function () {
     expect(this.wrapper.find(InputForm)).to.have.lengthOf(1);
     expect(this.wrapper.find(Counter)).to.have.lengthOf(1);
 });
