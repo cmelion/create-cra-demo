@@ -11,7 +11,7 @@ const Counter = () => {
     );
     const { increment, decrement } = bindActionCreators(counter.actions, useDispatch());
     return (
-        <div className="Counter">
+        <div className="counter">
             <p>count: {count}</p>
             <button onClick={ increment }>increment (+)</button>
             <button onClick={ decrement }>decrement (-)</button>

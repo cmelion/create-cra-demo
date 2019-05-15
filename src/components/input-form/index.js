@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import { Form } from "./form";
 import Paper from "@material-ui/core/Paper";
 import * as Yup from "yup";
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const validationSchema = Yup.object({
     name: Yup.string("Enter a name").required("Name is required"),
@@ -30,8 +30,8 @@ const submitValues = ({ name, email, confirmPassword, password }) => {
 };
 
 const InputForm = () =>
-        <div className="container">
-            <Paper elevation={1} className="paper">
+        <div className={styles.container}>
+            <Paper elevation={1} className={styles.paper}>
                 <h1>Form</h1>
                 <Formik
                     render={props => <Form {...props} />}
