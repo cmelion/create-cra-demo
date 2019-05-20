@@ -4,10 +4,10 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import InputForm from './components/input-form';
 import Counter from './components/counter';
-import styles from './App.module.scss';
+import './App.scss';
 
 const App = () => (
-    <div className={styles.app}>
+    <div className="app">
         <InputForm/>
         <Counter/>
     </div>

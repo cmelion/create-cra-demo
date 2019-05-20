@@ -6,7 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 import App from './App';
-import './index.scss'
+import './index.scss';
+import "typeface-roboto";
 
 let store = createStore(rootReducer, composeWithDevTools());
 
