@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
-import { counter } from './components/counter/dux';
+import { useCounter } from './components/counter/dux';
 export default combineReducers(
     {
-        counter: counter.reducer
+        counter: useCounter.reducer
     }
 );
