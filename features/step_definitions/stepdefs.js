@@ -1,14 +1,16 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import App from '../../src/App';
-import { configure } from 'enzyme';
-import { shallow } from 'enzyme';
+import { configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import configureStore from 'redux-mock-store';
+
+configure({ adapter: new Adapter() });
 const assert = require('assert');
 const { Given, When, Then } = require('cucumber');
-
-// Configures Enzyme Adapter
-configure({ adapter: new Adapter() });
-
+const middlewares = [];
+const mockStore = configureStore(middlewares);
+const initialState = {count: 1};
 Given('the DOM', function () {
     const { JSDOM } = require('jsdom');
     const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
@@ -18,9 +20,15 @@ Given('the DOM', function () {
 });
 
 When('I shallow render a React component called: App', function () {
-    this.wrapper = shallow(<App />);
+    const store = mockStore(initialState);
+    this.wrapper = mount(
+        <Provider store={store}>
+            <App/>
+        </Provider>
+    );
+    console.log(this.wrapper.debug());
 });
 
-Then('my app should contain the words: Learn React', function () {
-    assert(this.wrapper.contains('Learn React'));
+Then('my app should contain the initial count', function () {
+    assert(this.wrapper.contains(initialState.count.toString()));
 });
