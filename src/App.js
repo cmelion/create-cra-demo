@@ -1,11 +1,11 @@
 // src/App.js (react-hooks)
 
-import React, { useState } from "react";
+import React from "react";
 import { hot } from "react-hot-loader";
 import './App.scss';
 
 const useCounter = (initialValue) => {
-    const [count, setCount] = useState(initialValue);
+    const [count, setCount] = React.useState(initialValue);
     const increment = () => setCount(count + 1);
     const decrement = () => setCount(count - 1);
     return { count, increment, decrement };
@@ -17,8 +17,8 @@ const App = () => {
         <div className="App">
             <p>Learn React</p>
             <p>{count}</p>
-            <button onClick={increment}>increment (+)</button>
-            <button onClick={decrement}>decrement (-)</button>
+            <button id="count-up" onClick={increment}>increment (+)</button>
+            <button id="count-down" onClick={decrement}>decrement (-)</button>
         </div>
     );
 };
