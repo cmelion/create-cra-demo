@@ -4,4 +4,4 @@ Feature: App Displays Learn React
   Scenario: Shallow Render
     Given the DOM
     When I shallow render a React component called: App
-    Then my app should contain the words: Learn React
+    Then my app should contain the initial count
