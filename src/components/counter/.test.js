@@ -26,15 +26,15 @@ describe('<Counter />', () => {
         expect(wrapper.find('p').text()).toEqual('count: ' + initialState.counter.count);
     });
 
-    describe('Count Up', () => {
-        it('triggers the increment action', () => {
+    describe('Count Up (+)', () => {
+        it('increments the count', () => {
             wrapper.find('[aria-label="Increment"]').props().onClick();
             expect(dispatchSpy).toHaveBeenCalledWith(useCounter.actions.increment());
         });
     });
 
-    describe('Count Down', () => {
-        it('triggers the decrement action', () => {
+    describe('Count Down (-)', () => {
+        it('decrements the count', () => {
             wrapper.find('[aria-label="Decrement"]').props().onClick();
             expect(dispatchSpy).toHaveBeenCalledWith(useCounter.actions.decrement());
         });

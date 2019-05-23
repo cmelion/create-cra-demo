@@ -13,8 +13,8 @@ const Counter = () => {
     return (
         <div className="counter">
             <p>count: {count}</p>
-            <button aria-label="Increment" onClick={ increment }>increment (+)</button>
-            <button aria-label="Decrement" onClick={ decrement }>decrement (-)</button>
+            <button aria-label="Increment" onClick={ increment }>Count Up (+)</button>
+            <button aria-label="Decrement" onClick={ decrement }>Count Down (-)</button>
         </div>
     );
 };
