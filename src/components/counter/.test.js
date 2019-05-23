@@ -23,14 +23,14 @@ describe('<Counter />', () => {
     });
 
     describe('Count Up', () => {
-        it('calls setCount with count + 1', () => {
+        it('triggers the increment action', () => {
             wrapper.find('[aria-label="Increment"]').props().onClick();
             expect(dispatchSpy).toHaveBeenCalledWith(useCounter.actions.increment());
         });
     });
 
     describe('Count Down', () => {
-        it('calls setCount with count - 1', () => {
+        it('triggers the decrement action', () => {
             wrapper.find('[aria-label="Decrement"]').props().onClick();
             expect(dispatchSpy).toHaveBeenCalledWith(useCounter.actions.decrement());
         });
