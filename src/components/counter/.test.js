@@ -22,6 +22,10 @@ describe('<Counter />', () => {
         jest.clearAllMocks();
     });
 
+    it('displays the current count', () => {
+        expect(wrapper.find('p').text()).toEqual('count: ' + initialState.counter.count);
+    });
+
     describe('Count Up', () => {
         it('triggers the increment action', () => {
             wrapper.find('[aria-label="Increment"]').props().onClick();
