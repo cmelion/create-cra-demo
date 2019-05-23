@@ -20,6 +20,7 @@ describe('<Counter />', () => {
 
     afterEach(() => {
         jest.clearAllMocks();
+        store.clearActions();
     });
 
     it('displays the current count', () => {
