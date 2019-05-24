@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:coverage": "react-scripts test --env=jsdom --coverage --watchAll=false"  ,
+    "test:coverage": "react-scripts test --env=jsdom --coverage --watchAll=false",
     "eject": "react-scripts eject",
     "cucumber": "BABEL_ENV=test npx babel-node --presets=@babel/react,@babel/preset-env node_modules/cucumber/bin/cucumber-js -f node_modules/cucumber-pretty",
     "json-server": "json-server --watch --delay 500 json-server/db.json --id _id --port $npm_package_config_apiPort --routes json-server/routes.json"
@@ -59,7 +59,8 @@
     "node-sass": "^4.12.0",
     "react-hot-loader": "^4.8.4",
     "redux-devtools-extension": "^2.13.8",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "waait": "^1.0.4"
   },
   "jest": {
     "collectCoverageFrom": [
