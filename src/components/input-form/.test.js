@@ -32,7 +32,7 @@ describe("When I insert a wrong email ", () => {
     });
 
     it("The new email value should be displayed", () => {
-        const emailField = ui.find("#email").first();
+        const emailField = ui.find("#email").find("input");
         expect(emailField.prop("value")).toContain("foo");
     });
 });
