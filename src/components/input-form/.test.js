@@ -1,5 +1,4 @@
 import React from "react";
-import { act } from 'react-dom/test-utils';
 import InputForm from "./index";
 import { mount } from "enzyme";
 import wait from "waait";
@@ -7,6 +6,7 @@ import wait from "waait";
 let ui;
 
 describe("When I insert a wrong email ", () => {
+
     beforeEach(() => {
         ui = mount(<InputForm />);
 
