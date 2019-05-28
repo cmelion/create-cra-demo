@@ -6,6 +6,16 @@ import wait from "waait";
 let ui;
 
 describe("When I insert a wrong email ", () => {
+    // TODO: Fix needed for - Warning: An update to Formik inside a test was not wrapped in act(...).
+    // https://github.com/jaredpalmer/formik/issues/1543
+    // for now just disable warnings in this test.
+    beforeAll(() => {
+        console.error = jest.fn();
+    });
+
+    afterAll(() => {
+        console.error = originalError;
+    });
 
     beforeEach(() => {
         ui = mount(<InputForm />);
