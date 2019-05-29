@@ -68,7 +68,7 @@ describe("Registration form", () => {
                 const errors = ui.find(`p[children="${testCase.errorText}"]`);
                 expect(errors.length).toBeGreaterThan(0);
             });
-            describe(`When a valid ${testCase.field} is entered`, () => {
+            describe(`When the ${testCase.field} is corrected`, () => {
                 it(`The ${testCase.field} error should be cleared`, async () => {
                     const field = ui.find(`#${testCase.field}`).find("input");
 
@@ -112,7 +112,6 @@ describe("Registration form", () => {
                     value: "foo"
                 }
             });
-
 
             //simulate the blur
             confirmPassword.simulate("blur");
