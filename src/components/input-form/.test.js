@@ -1,9 +1,7 @@
 import React from "react";
 import InputForm from "./index";
-import { Form } from "./form"
-import { mount, shallow } from "enzyme";
+import { mount } from "enzyme";
 import wait from "waait";
-import Paper from "@material-ui/core/Paper";
 
 let ui;
 describe("Registration form", () => {
