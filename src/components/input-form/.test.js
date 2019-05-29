@@ -59,7 +59,7 @@ describe("Registration form", () => {
                 field.simulate("blur");
             });
 
-            it(`The new ${testCase.field} value should be displayed`, () => {
+            it(`The bad ${testCase.field} value should be displayed`, () => {
                 const field = ui.find(`#${testCase.field}`).find("input");
                 expect(field.prop("value")).toContain(testCase.badValue);
             });
@@ -70,7 +70,25 @@ describe("Registration form", () => {
                 const errors = ui.find(`p[children="${testCase.errorText}"]`);
                 expect(errors.length).toBeGreaterThan(0);
             });
+            describe(`When a valid ${testCase.field} is entered`, () => {
+                it(`The ${testCase.field} error should be cleared`, async () => {
+                    const field = ui.find(`#${testCase.field}`).find("input");
 
+                    //insert a wrong email
+                    field.simulate("change", {
+                        target: {
+                            name: testCase.field,
+                            value: testCase.goodValue
+                        }
+                    });
+                    //simulate the blur
+                    field.simulate("blur");
+                    await wait(0);
+                    ui.update();
+                    const errors = ui.find(`p[children="${testCase.errorText}"]`);
+                    expect(errors.length).toBe(0);
+                });
+            });
         });
     });
 
