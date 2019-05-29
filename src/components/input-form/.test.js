@@ -1,7 +1,9 @@
 import React from "react";
 import InputForm from "./index";
-import { mount } from "enzyme";
+import { Form } from "./form"
+import { mount, shallow } from "enzyme";
 import wait from "waait";
+import Paper from "@material-ui/core/Paper";
 
 let ui;
 describe("Registration form", () => {
@@ -16,98 +18,63 @@ describe("Registration form", () => {
         console.error = originalError;
     });
 
-    describe("When I don't enter a user name ", () => {
-        beforeEach(() => {
-            ui = mount(<InputForm/>);
+    [
+        {
+            desc:       "When I leave the name field blank",
+            field:      "name",
+            badValue:   "",
+            goodValue:  "foo",
+            errorText:  "Name is required",
+        },
+        {
+            desc:       "When enter an invalid email address",
+            field:      "email",
+            badValue:   "foo",
+            goodValue:  "foo@bar.com",
+            errorText:  "Enter a valid email",
+        },
+        {
+            desc:       "When I enter a password that is too short",
+            field:      "password",
+            badValue:   "foo",
+            goodValue:  "12345678",
+            errorText:  "Password must contain at least 8 characters",
+        },
+    ].forEach(function (testCase) {
+        describe(testCase.desc, () => {
+            beforeEach(() => {
+                ui = mount(<InputForm/>);
 
-            const nameField = ui.find("#name").find("input");
+                const field = ui.find(`#${testCase.field}`).find("input");
 
-            //insert a wrong email
-            nameField.simulate("change", {
-                target: {
-                    name: "name",
-                    value: ""
-                }
+                //insert a wrong email
+                field.simulate("change", {
+                    target: {
+                        name: testCase.field,
+                        value: testCase.badValue
+                    }
+                });
+
+                //simulate the blur
+                field.simulate("blur");
             });
 
-            //simulate the blur
-            nameField.simulate("blur");
-        });
-
-        it("The missing name error is displayed", async () => {
-            await wait(0);
-            ui.update();
-            const errors = ui.find('p[children="Name is required"]');
-            expect(errors.length).toBeGreaterThan(0);
-        });
-
-    });
-
-    describe("When I enter a wrong email ", () => {
-        beforeEach(() => {
-            ui = mount(<InputForm/>);
-
-            const emailField = ui.find("#email").find("input");
-
-            //insert a wrong email
-            emailField.simulate("change", {
-                target: {
-                    name: "email",
-                    value: "foo"
-                }
+            it(`The new ${testCase.field} value should be displayed`, () => {
+                const field = ui.find(`#${testCase.field}`).find("input");
+                expect(field.prop("value")).toContain(testCase.badValue);
             });
 
-            //simulate the blur
-            emailField.simulate("blur");
-        });
-
-        it("The new email value should be displayed", () => {
-            const emailField = ui.find("#email").find("input");
-            expect(emailField.prop("value")).toContain("foo");
-        });
-
-        it("The email error is displayed", async () => {
-            await wait(0);
-            ui.update();
-            const errors = ui.find('p[children="Enter a valid email"]');
-            expect(errors.length).toBeGreaterThan(0);
-        });
-
-    });
-
-    describe("When I enter a password that is too short ", () => {
-        beforeEach(() => {
-            ui = mount(<InputForm/>);
-
-            const passwordField = ui.find("#password").find("input");
-
-            //insert a short password
-            passwordField.simulate("change", {
-                target: {
-                    name: "password",
-                    value: "foo"
-                }
+            it(`The ${testCase.field} error is displayed`, async () => {
+                await wait(0);
+                ui.update();
+                const errors = ui.find(`p[children="${testCase.errorText}"]`);
+                expect(errors.length).toBeGreaterThan(0);
             });
 
-            //simulate the blur
-            passwordField.simulate("blur");
         });
-
-        it("The new password value should be displayed", () => {
-            const passwordField = ui.find("#password").find("input");
-            expect(passwordField.prop("value")).toContain("foo");
-        });
-
-        it("The password error is displayed", async () => {
-            await wait(0);
-            ui.update();
-            const errors = ui.find('p[children="Password must contain at least 8 characters"]');
-            expect(errors.length).toBeGreaterThan(0);
-        });
-
     });
 
-    describe("When passwords don't match ", () => {
+    describe("When password and confirmation don't match ", () => {
         beforeEach(() => {
             ui = mount(<InputForm/>);
 
@@ -143,4 +110,5 @@ describe("Registration form", () => {
         });
 
     });
+
 });
