@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 import wait from "waait";
 
 let ui;
-describe("Registration form", () => {
+describe("As someone who wants to Register", () => {
     // TODO: Fix needed for - Warning: An update to Formik inside a test was not wrapped in act(...).
     // https://github.com/jaredpalmer/formik/issues/1543
     // for now just disable warnings in this test.
@@ -15,30 +15,31 @@ describe("Registration form", () => {
     afterAll(() => {
         console.error = originalError;
     });
-    describe("Field-level validation", () => {
-        [
+    describe("When I fill in the Registration Form", () => {
+        const testCases = [
             {
-                desc: "When I leave the name field blank",
+                desc: "And I leave the name field blank",
                 field: "name",
                 badValue: "",
                 goodValue: "foo",
                 errorText: "Name is required",
             },
             {
-                desc: "When enter an invalid email address",
+                desc: "Or I enter an invalid email address",
                 field: "email",
                 badValue: "foo",
                 goodValue: "foo@bar.com",
                 errorText: "Enter a valid email",
             },
             {
-                desc: "When I enter a password that is too short",
+                desc: "Or I enter a password that is too short",
                 field: "password",
                 badValue: "foo",
                 goodValue: "12345678",
                 errorText: "Password must contain at least 8 characters",
             },
-        ].forEach(function(testCase) {
+        ];
+        testCases.forEach(function(testCase) {
             describe(testCase.desc, () => {
                 beforeEach(() => {
                     ui = mount(<InputForm/>);
@@ -57,19 +58,19 @@ describe("Registration form", () => {
                     field.simulate("blur");
                 });
 
-                it(`The bad ${testCase.field} value should be displayed`, () => {
-                    const field = ui.find(`#${testCase.field}`).find("input");
-                    expect(field.prop("value")).toContain(testCase.badValue);
-                });
-
-                it(`The ${testCase.field} error is displayed`, async () => {
+                it(`Then the ${testCase.field} error is displayed`, async () => {
                     await wait(0);
                     ui.update();
                     const errors = ui.find(`p[children="${testCase.errorText}"]`);
                     expect(errors.length).toBeGreaterThan(0);
                 });
 
-                it("The submit button remains disabled", async () => {
+                it(`And the bad ${testCase.field} value is displayed`, () => {
+                    const field = ui.find(`#${testCase.field}`).find("input");
+                    expect(field.prop("value")).toContain(testCase.badValue);
+                });
+
+                it("And the submit button remains disabled", async () => {
                     await wait(0);
                     ui.update();
                     const button = ui.find("button");
@@ -78,7 +79,7 @@ describe("Registration form", () => {
                 });
 
                 describe(`When the ${testCase.field} is corrected`, () => {
-                    it(`The ${testCase.field} error should be cleared`, async () => {
+                    it(`Then the ${testCase.field} error is cleared`, async () => {
                         const field = ui.find(`#${testCase.field}`).find("input");
 
                         //insert a wrong email
@@ -101,7 +102,7 @@ describe("Registration form", () => {
     });
 
     describe("When password and confirmation don't match ", () => {
-        beforeEach(() => {
+        it("Then the password error is displayed", async () => {
             ui = mount(<InputForm/>);
 
             const passwordField = ui.find("#password").find("input");
@@ -125,9 +126,6 @@ describe("Registration form", () => {
 
             //simulate the blur
             confirmPassword.simulate("blur");
-        });
-
-        it("The password error is displayed", async () => {
             await wait(0);
             ui.update();
             const errors = ui.find('p[children="Password does not match"]');
