@@ -15,47 +15,50 @@ describe("As someone who wants to Register", () => {
     afterAll(() => {
         console.error = originalError;
     });
+    const initializeTest = function(testCase, value) {
+        ui = mount(<InputForm/>);
+
+        const field = ui.find(`#${testCase.field}`).find("input");
+
+        //insert a wrong email
+        field.simulate("change", {
+            target: {
+                name: testCase.field,
+                value: value
+            }
+        });
+
+        //simulate the blur
+        field.simulate("blur");
+    };
+    const testCases = [
+        {
+            desc: "And I leave the name field blank",
+            field: "name",
+            badValue: "",
+            goodValue: "foo",
+            errorText: "Name is required",
+        },
+        {
+            desc: "Or I enter an invalid email address",
+            field: "email",
+            badValue: "foo",
+            goodValue: "foo@bar.com",
+            errorText: "Enter a valid email",
+        },
+        {
+            desc: "Or I enter a password that is too short",
+            field: "password",
+            badValue: "foo",
+            goodValue: "12345678",
+            errorText: "Password must contain at least 8 characters",
+        },
+    ];
     describe("When I fill in the Registration Form", () => {
-        const testCases = [
-            {
-                desc: "And I leave the name field blank",
-                field: "name",
-                badValue: "",
-                goodValue: "foo",
-                errorText: "Name is required",
-            },
-            {
-                desc: "Or I enter an invalid email address",
-                field: "email",
-                badValue: "foo",
-                goodValue: "foo@bar.com",
-                errorText: "Enter a valid email",
-            },
-            {
-                desc: "Or I enter a password that is too short",
-                field: "password",
-                badValue: "foo",
-                goodValue: "12345678",
-                errorText: "Password must contain at least 8 characters",
-            },
-        ];
         testCases.forEach(function(testCase) {
             describe(testCase.desc, () => {
                 beforeEach(() => {
-                    ui = mount(<InputForm/>);
-
-                    const field = ui.find(`#${testCase.field}`).find("input");
-
-                    //insert a wrong email
-                    field.simulate("change", {
-                        target: {
-                            name: testCase.field,
-                            value: testCase.badValue
-                        }
-                    });
-
-                    //simulate the blur
-                    field.simulate("blur");
+                    initializeTest(testCase,testCase.badValue);
                 });
 
                 it(`Then the ${testCase.field} error is displayed`, async () => {
@@ -79,18 +82,8 @@ describe("As someone who wants to Register", () => {
                 });
 
                 describe(`When the ${testCase.field} is corrected`, () => {
-                    it(`Then the ${testCase.field} error is cleared`, async () => {
-                        const field = ui.find(`#${testCase.field}`).find("input");
-
-                        //insert a wrong email
-                        field.simulate("change", {
-                            target: {
-                                name: testCase.field,
-                                value: testCase.goodValue
-                            }
-                        });
-                        //simulate the blur
-                        field.simulate("blur");
+                    it(`The ${testCase.field} error should be cleared`, async () => {
+                        initializeTest(testCase, testCase.goodValue);
                         await wait(0);
                         ui.update();
                         const errors = ui.find(`p[children="${testCase.errorText}"]`);
