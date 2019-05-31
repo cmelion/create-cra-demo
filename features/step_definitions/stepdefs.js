@@ -1,17 +1,17 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import App from '../../src/App';
-import { configure, mount } from 'enzyme';
+import InputForm from '../../src/components/input-form';
+import Counter from '../../src/components/counter';
+import { configure } from 'enzyme';
+import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import configureStore from 'redux-mock-store';
-
-configure({ adapter: new Adapter() });
-const assert = require('assert');
+import {expect} from "chai";
 const { Given, When, Then } = require('cucumber');
-const middlewares = [];
-const mockStore = configureStore(middlewares);
-const initialState = {count: 1};
-Given('the DOM', function () {
+
+// Configures Enzyme Adapter
+configure({ adapter: new Adapter() });
+
+Given('the App has been opened', function () {
     const { JSDOM } = require('jsdom');
     const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
     const { window } = jsdom;
@@ -19,16 +19,11 @@ Given('the DOM', function () {
     global.document = window.document;
 });
 
-When('I shallow render a React component called: App', function () {
-    const store = mockStore(initialState);
-    this.wrapper = mount(
-        <Provider store={store}>
-            <App/>
-        </Provider>
-    );
-    console.log(this.wrapper.debug());
+When('the demo app renders', function () {
+    this.wrapper = shallow(<App />);
 });
 
-Then('my app should contain the initial count', function () {
-    assert(this.wrapper.contains(initialState.count.toString()));
+Then('the app should contain an Input Form and a Counter', function () {
+    expect(this.wrapper.find(InputForm)).to.have.lengthOf(1);
+    expect(this.wrapper.find(Counter)).to.have.lengthOf(1);
 });

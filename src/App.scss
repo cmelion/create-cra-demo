@@ -1,14 +1,9 @@
-// src/app.scss
+// src/app.module.scss
 
 body{
   margin: 0;
-  background-color: aquamarine;
 }
-.App{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: rgba(gray, 0.2);
-  height: 100vh
+.app{
+  font-family: sans-serif;
+  text-align: center;
 }
