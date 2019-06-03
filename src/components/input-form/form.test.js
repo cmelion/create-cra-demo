@@ -1,9 +1,11 @@
 import React from "react";
-import InputForm from "./index";
+import { Form } from "./form";
 import { mount } from "enzyme";
 import wait from "waait";
+import { Formik } from "formik";
+import {validationSchema} from "./schema";
 
-let ui;
+let ui, button;
 describe("As someone who wants to Register", () => {
     // TODO: Fix needed for - Warning: An update to Formik inside a test was not wrapped in act(...).
     // https://github.com/jaredpalmer/formik/issues/1543
@@ -15,8 +17,21 @@ describe("As someone who wants to Register", () => {
     afterAll(() => {
         console.error = originalError;
     });
+    const mockSubmitFn = jest.fn();
+    const defaultValues = {
+        name: "",
+        email: "",
+        confirmPassword: "",
+        password: ""
+    };
+
     const initializeTest = function(testCase, value) {
-        ui = mount(<InputForm/>);
+        ui = mount(<Formik
+            render={props => <Form {...props} />}
+            initialValues={defaultValues}
+            validationSchema={validationSchema}
+            onSubmit={mockSubmitFn}
+        />);
 
         const field = ui.find(`#${testCase.field}`).find("input");
 
@@ -54,6 +69,7 @@ describe("As someone who wants to Register", () => {
             errorText: "Password must contain at least 8 characters",
         },
     ];
+
     describe("When I fill in the Registration Form", () => {
         testCases.forEach(function(testCase) {
             describe(testCase.desc, () => {
@@ -82,7 +98,7 @@ describe("As someone who wants to Register", () => {
                 });
 
                 describe(`When the ${testCase.field} is corrected`, () => {
-                    it(`The ${testCase.field} error should be cleared`, async () => {
+                    it(`Then the ${testCase.field} error should be cleared`, async () => {
                         initializeTest(testCase, testCase.goodValue);
                         await wait(0);
                         ui.update();
@@ -96,7 +112,12 @@ describe("As someone who wants to Register", () => {
 
     describe("When password and confirmation don't match ", () => {
         it("Then the password error is displayed", async () => {
-            ui = mount(<InputForm/>);
+            ui = mount(<Formik
+                render={props => <Form {...props} />}
+                initialValues={defaultValues}
+                validationSchema={validationSchema}
+                onSubmit={mockSubmitFn}
+            />);
 
             const passwordField = ui.find("#password").find("input");
             const confirmPassword = ui.find("#confirmPassword").find("input");
@@ -125,6 +146,49 @@ describe("As someone who wants to Register", () => {
             expect(errors.length).toBeGreaterThan(0);
         });
 
+    });
+
+    describe("When all fields have been entered correctly", () => {
+        it("Then the submit button is enabled", async () => {
+            const validValues = {
+                name: testCases[0].badValue,
+                email: testCases[1].goodValue,
+                confirmPassword: testCases[2].goodValue,
+                password: testCases[2].goodValue
+            };
+
+            ui = mount(<Formik
+                render={props => <Form {...props} />}
+                initialValues={validValues}
+                validationSchema={validationSchema}
+                onSubmit={mockSubmitFn}
+            />);
+            button = ui.find("button");
+            expect(button.props().disabled).toBe(true);
+
+            // We need to set touched to trigger validation
+            const field = ui.find("#name").find("input");
+            field.simulate("change", {
+                target: {
+                    name: "name",
+                    value: testCases[0].goodValue
+                }
+            });
+            //simulate the blur
+            field.simulate("blur");
+            await wait(0);
+            ui.update();
+            button = ui.find("button");
+            expect(button.props().disabled).toBe(false);
+        });
+        describe("When the form is submitted", () => {
+            it("Then submitValues is called", async () => {
+                ui.find('form').simulate('submit', { preventDefault () {} });
+                await wait(0);
+                ui.update();
+                expect(mockSubmitFn).toHaveBeenCalled();
+            });
+        });
     });
 
 });
