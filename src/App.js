@@ -7,23 +7,22 @@ import './App.scss';
 const counterReducer = (state, action) => {
     switch (action.type) {
         case 'increment':
-            return state + 1;
+            return { ...state, count: state.count + 1 };
         case 'decrement':
-            return state -1;
+            return { ...state, count: state.count - 1 };
         default:
             throw new Error();
     }
 };
 
 const useCounter = (initialValue) => {
-    const [count, dispatch] = React.useReducer(counterReducer, initialValue);
+    const [state, dispatch] = React.useReducer(counterReducer, initialValue);
     const increment = () => dispatch({ type: 'increment' });
     const decrement = () => dispatch({ type: 'decrement' });
-    return { count, increment, decrement };
+    return { state, increment, decrement };
 };
-
 const App = () => {
-    const { count, increment, decrement } = useCounter(0);
+    const { state: { count }, increment, decrement } = useCounter(0);
     return (
         <div className="App">
             <p>Learn React</p>
