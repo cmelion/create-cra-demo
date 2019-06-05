@@ -18,7 +18,7 @@ describe('Given a correctly filled in Registration form', () => {
             const form = shallow(<InputForm />);
             const formik = form.find(Paper).dive().find(Formik);
             const innerForm = formik.dive().find(Form);
-            // Don't test Formik but confirm the correct handler was passed
+            // Don't test Formik here, but do confirm the correct handler was passed
             expect(formik.props().onSubmit).toBe(submitValues);
             expect(innerForm).toBeDefined();
 
