@@ -1,5 +1,6 @@
 import React from 'react';
 import MUIDataTable from "mui-datatables";
+import AddButton from "./add-button";
 
 export default function DataTable() {
     const columns = ["Name", "Title", "Location", "Age", "Salary"];
@@ -57,7 +58,10 @@ export default function DataTable() {
 
     const options = {
         filterType: "dropdown",
-        responsive: "scroll"
+        responsive: "scroll",
+        customToolbar: () => {
+            return <AddButton />;
+        }
     };
 
     return (
