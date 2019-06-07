@@ -20,14 +20,14 @@ describe('<App />', () => {
     });
 
     describe('Count Up', () => {
-        it('calls setCount with count + 1', () => {
+        it('increments the count by 1', () => {
             wrapper.find('#count-up').props().onClick();
             expect(dispatch).toHaveBeenCalledWith({"type": "increment"});
         });
     });
 
     describe('Count Down', () => {
-        it('calls setCount with count - 1', () => {
+        it('decrements the count by 1', () => {
             wrapper.find('#count-down').props().onClick();
             expect(dispatch).toHaveBeenCalledWith({"type": "decrement"});
         });
