@@ -7,9 +7,9 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
     let wrapper;
-    const setState = jest.fn();
-    const useStateSpy = jest.spyOn(React, 'useState');
-    useStateSpy.mockImplementation((init) => [init, setState]);
+    const dispatch = jest.fn();
+    const useReducerSpy = jest.spyOn(React, 'useReducer');
+    useReducerSpy.mockImplementation(() => [{}, dispatch]);
 
     beforeEach(() => {
         wrapper = Enzyme.shallow(<App />);
@@ -22,14 +22,14 @@ describe('<App />', () => {
     describe('Count Up', () => {
         it('calls setCount with count + 1', () => {
             wrapper.find('#count-up').props().onClick();
-            expect(setState).toHaveBeenCalledWith(1);
+            expect(dispatch).toHaveBeenCalledWith({"type": "increment"});
         });
     });
 
     describe('Count Down', () => {
         it('calls setCount with count - 1', () => {
             wrapper.find('#count-down').props().onClick();
-            expect(setState).toHaveBeenCalledWith(-1);
+            expect(dispatch).toHaveBeenCalledWith({"type": "decrement"});
         });
     });
 
