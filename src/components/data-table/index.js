@@ -1,8 +1,9 @@
 import React from 'react';
 import MUIDataTable from "mui-datatables";
-import AddButton from "./add-button";
+import { AddButton } from "./add-button";
+import {hot} from "react-hot-loader/index";
 
-export default function DataTable() {
+const DataTable = () => {
     const columns = ["Name", "Title", "Location", "Age", "Salary"];
 
     const data = [
@@ -72,4 +73,6 @@ export default function DataTable() {
             options={options}
         />
     );
-}
+};
+
+export default hot(module)(DataTable);

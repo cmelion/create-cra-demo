@@ -2,32 +2,19 @@ import React from "react";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddIcon from "@material-ui/icons/Add";
-import { withStyles } from "@material-ui/core/styles";
+import Styles from "@material-ui/core/styles";
 
-const defaultToolbarStyles = {
-    iconButton: {}
+const handleClick = () => {
+    console.log("clicked on icon!");
 };
 
-class AddButton extends React.Component {
-    handleClick = () => {
-        console.log("clicked on icon!");
-    };
 
-    render() {
-        const { classes } = this.props;
-
-        return (
+export const AddButton = () => (
             <React.Fragment>
                 <Tooltip title={"custom icon"}>
-                    <IconButton className={classes.iconButton} onClick={this.handleClick}>
-                        <AddIcon className={classes.deleteIcon} />
+                    <IconButton className={Styles.iconButton} onClick={handleClick}>
+                        <AddIcon className={Styles.deleteIcon} />
                     </IconButton>
                 </Tooltip>
             </React.Fragment>
-        );
-    }
-}
-
-export default withStyles(defaultToolbarStyles, { name: "AddButton" })(
-    AddButton
 );
