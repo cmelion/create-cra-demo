@@ -4,6 +4,7 @@ import { hot } from "react-hot-loader";
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { useCounter } from './dux/index';
+import styles from "./styles.module.scss";
 
 const Counter = () => {
     const count = useSelector(
@@ -11,7 +12,7 @@ const Counter = () => {
     );
     const { increment, decrement } = bindActionCreators(useCounter.actions, useDispatch());
     return (
-        <div className="counter">
+        <div className={styles.counter}>
             <p>count: {count}</p>
             <button aria-label="Increment" onClick={ increment }>Count Up (+)</button>
             <button aria-label="Decrement" onClick={ decrement }>Count Down (-)</button>
@@ -19,4 +20,5 @@ const Counter = () => {
     );
 };
 
-export default hot(module)(Counter);
+const MemoizedCounterComponent = React.memo(Counter);
+export default hot(module)(MemoizedCounterComponent);
