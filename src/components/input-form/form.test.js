@@ -80,11 +80,13 @@ describe("As someone who wants to Register", () => {
                 it(`Then the ${testCase.field} error is displayed`, async () => {
                     await wait(0);
                     ui.update();
+                    // TODO: Move this into a DSL/PageObject
                     const errors = ui.find(`p[children="${testCase.errorText}"]`);
                     expect(errors.length).toBeGreaterThan(0);
                 });
 
                 it(`And the bad ${testCase.field} value is displayed`, () => {
+                    // TODO: Move this into a DSL/PageObject
                     const field = ui.find(`#${testCase.field}`).find("input");
                     expect(field.prop("value")).toContain(testCase.badValue);
                 });
@@ -92,6 +94,7 @@ describe("As someone who wants to Register", () => {
                 it("And the submit button remains disabled", async () => {
                     await wait(0);
                     ui.update();
+                    // TODO: Move this into a DSL/PageObject
                     const button = ui.find("button");
                     expect(button.length).toBe(1);
                     expect(button.props().disabled).toBe(true);
@@ -102,6 +105,7 @@ describe("As someone who wants to Register", () => {
                         initializeTest(testCase, testCase.goodValue);
                         await wait(0);
                         ui.update();
+                        // TODO: Move this into a DSL/PageObject
                         const errors = ui.find(`p[children="${testCase.errorText}"]`);
                         expect(errors.length).toBe(0);
                     });
@@ -183,6 +187,7 @@ describe("As someone who wants to Register", () => {
         });
         describe("When the form is submitted", () => {
             it("Then submitValues is called", async () => {
+                // TODO: Move this into a DSL/PageObject
                 ui.find('form').simulate('submit', { preventDefault () {} });
                 await wait(0);
                 ui.update();
