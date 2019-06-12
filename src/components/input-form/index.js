@@ -19,7 +19,7 @@ export const submitValues = ({ name, email, confirmPassword, password }) => {
 const InputForm = () =>
         <div className="container">
             <Paper elevation={1} className="paper">
-                <h1>Form</h1>
+                <h1>Register</h1>
                 <Formik
                     render={props => <Form {...props} />}
                     initialValues={values}
