@@ -3,13 +3,12 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import * as serviceWorker from './serviceWorker';
-import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 import App from './App';
 import './index.scss';
 import "typeface-roboto";
 /* istanbul ignore next */
-let store = createStore(rootReducer, composeWithDevTools());
+let store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 render(
     <Provider store={store}>
