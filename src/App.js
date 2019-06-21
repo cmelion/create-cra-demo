@@ -1,7 +1,6 @@
 // src/App.js
 
 import React from "react";
-import { hot } from "react-hot-loader";
 import Counter from "./components/counter";
 import DataTable from "./components/data-table"
 import { create } from 'jss';
@@ -22,4 +21,4 @@ const App = () => (
     </StylesProvider>
 );
 
-export default hot(module)(App);
+export default App;
