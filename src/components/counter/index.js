@@ -1,6 +1,5 @@
 // components/counter/index.js
 import React from "react";
-import { hot } from "react-hot-loader";
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { useCounter } from './dux/index';
@@ -21,4 +20,4 @@ const Counter = () => {
 };
 
 const MemoizedCounterComponent = React.memo(Counter);
-export default hot(module)(MemoizedCounterComponent);
+export default MemoizedCounterComponent;
