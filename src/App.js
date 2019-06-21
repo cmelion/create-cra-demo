@@ -4,9 +4,8 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import Counter from "./components/counter";
 import DataTable from "./components/data-table"
-import JssProvider from "react-jss/lib/JssProvider";
-import { create } from "jss";
-import { jssPreset } from "@material-ui/core/styles";
+import { create } from 'jss';
+import { StylesProvider, jssPreset } from '@material-ui/styles';
 
 const jss = create({
     ...jssPreset(),
@@ -15,12 +14,12 @@ const jss = create({
 });
 
 const App = () => (
-    <JssProvider jss={jss}>
+    <StylesProvider jss={jss}>
         <React.Fragment>
             <Counter/>
             <DataTable/>
         </React.Fragment>
-    </JssProvider>
+    </StylesProvider>
 );
 
 export default hot(module)(App);
