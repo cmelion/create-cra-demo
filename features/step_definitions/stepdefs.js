@@ -11,6 +11,9 @@ const { Given, When, Then } = require('cucumber');
 // Configures Enzyme Adapter
 configure({ adapter: new Adapter() });
 
+// TODO: Refactor to use page-objects or screenplay patterns to support sharing features and step_definitions with QA
+// By using page-objects or the screenplay pattern only the API would need to be rewritten to support both Client and Server DEVs and QA
+
 Given('the App has been opened', function () {
     const { JSDOM } = require('jsdom');
     const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
