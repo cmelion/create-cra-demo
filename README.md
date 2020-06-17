@@ -5,7 +5,7 @@ This playground project was bootstrapped with [Create React App](https://github.
 #### Counter DEMO
 * [react-hooks-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/react-hooks-version)     - demonstrates useState hook for local state management
 * [redux-connect-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/redux-connect-version) - demonstrates redux using react-redux connect method
-* [redux-connect-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/redux-hooks-version)   - demonstrates redux using react-redux hooks method
+* [react-redux-hooks-version](https://github.com/cmelion/react-cra-demo/tree/cfulnecky/redux-hooks-version)   - demonstrates redux using react-redux hooks method
 
 ##### Compare implementations
 * [redux-hooks vs redux-connect](https://github.com/cmelion/react-cra-demo/compare/cfulnecky/redux-hooks-version...cfulnecky/redux-connect-version)
